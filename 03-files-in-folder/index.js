@@ -5,7 +5,7 @@ fs.readdir(path.join(__dirname, './secret-folder'), { withFileTypes: true }, (er
   if (err) {
     throw err;
   }
-  files.forEach((file) => {
+  for (const file of files) {
     if (file.isFile()) {
       let fileName = file.name.split('.')[0];
       let fileExtension = path.extname(file.name).split('.')[1];
@@ -17,5 +17,5 @@ fs.readdir(path.join(__dirname, './secret-folder'), { withFileTypes: true }, (er
         }
       });
     }
-  });
+  }
 });
